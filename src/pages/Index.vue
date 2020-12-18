@@ -5,9 +5,10 @@
                 <span><b-icon icon="github" style="color: #fff;"></b-icon></span>
                 <h1 class="display-6 text-uppercase mt-0">Find your github profile</h1>
                 <div class="col-md-10 mx-auto">
-                    <form class="mt-4">
+                    <form class="mt-4" @submit.stop.prevent="searchProfile()">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" v-bind:class="{ hasValue: username.trim().length > 0 }"  placeholder="Username" v-model="username">
+                            <button class="btn btn-light" v-bind:class="{ show: username.trim().length > 0 }"><b-icon icon="search"></b-icon></button>
                         </div>
                     </form>
                 </div>
@@ -17,7 +18,19 @@
 </template>
 <script>
 export default {
-    name: 'Index'
+    name: 'Index',
+    data() {
+        return {
+            username: '',
+        }
+    },
+    methods: {
+        searchProfile(){
+            if(this.username.trim().length > 0){
+                this.$router.push(`/profile/${this.username.trim()}`);
+            }
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -38,6 +51,9 @@ export default {
        font-size: 35px;
        color: #fff;
        text-align: center;
+       &.hasValue{
+            padding-right: 78px;
+       }
        &:focus{
            outline: none;
            box-shadow: none;
@@ -59,6 +75,21 @@ export default {
         color: #fff;
         opacity: .3;
         font-size: 30px;
+    }
+    .form-group{
+        overflow: hidden;
+        position: relative;
+        button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -75px;
+            padding: 13px 20px;
+            transition: all .4s;
+            &.show{
+                right: 7px;
+            }
+        }
     }
 }
 </style>
