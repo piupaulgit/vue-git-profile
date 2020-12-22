@@ -1,14 +1,19 @@
 <template>
     <div>
-        <h1>This is Profile</h1>
+        <div v-if="!hasError">
+            <GithubIcon></GithubIcon>
+            <h1>Github profile found with username {{username}}</h1>
+        </div>
         <div v-if="hasError">
             <h1>No Github profile found with username {{username}}</h1>
         </div>
     </div>
 </template>
 <script>
+import GithubIcon from "../components/GithubIcon";
 export default {
     name:'Profile',
+    components: {GithubIcon},
     data() {
         return {
             username: this.$route.params.username,
