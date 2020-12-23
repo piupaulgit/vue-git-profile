@@ -2,6 +2,7 @@
     <div>
         <div v-if="!hasError">
             <GithubIcon></GithubIcon>
+            <Header v-bind:userInfo="userInfo"></Header>
             <h1>Github profile found with username {{username}}</h1>
         </div>
         <div v-if="hasError">
@@ -11,9 +12,10 @@
 </template>
 <script>
 import GithubIcon from "../components/GithubIcon";
+import Header from "../components/Header";
 export default {
     name:'Profile',
-    components: {GithubIcon},
+    components: {GithubIcon, Header},
     data() {
         return {
             username: this.$route.params.username,

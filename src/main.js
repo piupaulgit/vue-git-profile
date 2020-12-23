@@ -9,6 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './style.scss';
 import Index from './pages/Index';
 import Profile from './pages/Profile';
+import moment from "moment";
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
@@ -24,6 +25,13 @@ const routes = [
     path: '/profile/:username', component: Profile
   }
 ]
+
+// date filter
+Vue.filter("formatDate", function(value) {
+  if (value) {
+    return moment(String(value)).format("MM/DD/YYYY");
+  }
+});
 
 const router = new VueRouter({
   routes,
