@@ -52,6 +52,7 @@ export default {
    align-items: center;
    justify-content: center;
    color: $white_color;
+   padding: 100px 0;
    .header_content{
         display: flex;
         flex-direction: column;
