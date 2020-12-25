@@ -3,7 +3,7 @@
         <div v-if="!hasError">
             <GithubIcon></GithubIcon>
             <Header v-bind:userInfo="userInfo"></Header>
-            <charts></charts>
+            <Charts></Charts>
             <h1>Github profile found with username {{username}}</h1>
         </div>
         <div v-if="hasError">
@@ -14,8 +14,8 @@
 <script>
 import GithubIcon from "../components/GithubIcon";
 import Header from "../components/Header";
-import GhPolyglot from 'gh-polyglot';
 import Charts from '../components/Charts.vue';
+
 export default {
     name:'Profile',
     components: {GithubIcon, Header, Charts},
@@ -24,6 +24,7 @@ export default {
             username: this.$route.params.username,
             userInfo: Object,
             userConfig: Object,
+            langData: [],
             reposInfo: Object,
             hasError: false
         }
@@ -41,12 +42,8 @@ export default {
             }).catch(() => {
                 this.hasError = true;
             });
-             const me = new GhPolyglot(`${this.username}`);
-             me.userStats(function (err, stats) {
-                console.log(err || stats);
-            });
-    },
-    methods() {
+
+           
     }
 }
 </script>
