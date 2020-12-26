@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-4" v-for="repo in sortedRepoData" :key="repo.id">
-                <div class="repo_item d-flex flex-column justify-content-between">
+                <a :href="repo.html_url" class="repo_item d-flex flex-column justify-content-between" target="_blank">
                     <div>
                         <h4>{{repo.name}}</h4>
                         <p>{{repo.description ? repo.description : "No Description added"}}</p>
@@ -45,7 +45,7 @@
                         </ul>
                         <span class="repo_size">{{repo.size.toLocaleString()}} KB</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -106,6 +106,10 @@ export default {
         border-radius: 2px;
         margin-bottom: 30px;
         min-height: 150px;
+        color: #333;
+        &:hover{
+            text-decoration: none;
+        }
         h4{
             font-size: 15px;
         }
