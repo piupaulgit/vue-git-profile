@@ -132,6 +132,13 @@ export default {
     padding: 60px 0;
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: 768px) {
+        flex-direction: column;
+        width: 80%;
+        gap: 0;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
     .chart_item{
         padding-top: 20px;
         max-width: 40%;
@@ -140,6 +147,12 @@ export default {
         border-radius: 5px;
         overflow: hidden;
         box-shadow: 0px 0px 7px #c7c1c1;
+        @media only screen and (max-width: 768px) {
+             max-width: 100%;
+            flex: 0 0 100%;
+            width: 100%;
+            margin-bottom: 20px;
+        }
     }
 }
 </style>

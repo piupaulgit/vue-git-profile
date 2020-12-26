@@ -32,6 +32,12 @@ export default {
     padding: 30px 0;
     background: #f1f1f1;
     margin-top: 80px;
+     @media only screen and (max-width: 768px) {
+         font-size: 12px;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 30px;
+     }
     p{
         margin-bottom: 0;
     }
@@ -53,6 +59,9 @@ export default {
                 font-weight: bold;
                 font-size: 12px;
                 position: relative;
+                 @media only screen and (max-width: 768px) {
+                     font-size: 9px;
+                 }
                 &:after{
                     content: '';
                     height: 5px;

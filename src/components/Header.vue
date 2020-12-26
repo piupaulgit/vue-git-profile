@@ -5,7 +5,7 @@
                  <img v-bind:src="userInfo.avatar_url" />
             </div>
             <h1 class="display-3" v-if="userInfo.name">{{userInfo.name}}</h1>
-            <p v-if="userInfo.bio">{{userInfo.bio}}</p>
+            <p v-if="userInfo.bio" class="text-center">{{userInfo.bio}}</p>
             <h2 class="display-4 mt-2" v-if="userInfo.login">
                 <a :href="userInfo.html_url" target="_blank">@{{ userInfo.login }}</a>
             </h2>
@@ -66,7 +66,10 @@ export default {
    align-items: center;
    justify-content: center;
    color: $white_color;
-   padding: 100px 0;
+   padding: 100px 30px;
+   @media only screen and (max-width: 768px) {
+       padding: 60px 30px;
+   }
    .header_content{
         display: flex;
         flex-direction: column;
@@ -108,6 +111,9 @@ export default {
                line-height: 1;
                font-size: 12px;
                border-radius: 3px;
+               @media only screen and (max-width: 768px) {
+                   padding: 10px 8px;
+               }
                svg{
                    margin-right: 10px;
                }
@@ -116,11 +122,17 @@ export default {
        .repo_info{
            display: flex;
            gap: 15px;
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+                width: 80%;
+                gap: 0;
+            }
            .repo_info_item{
                margin-top: 25px;
                background: lighten($primary_color, 12%);
                padding: 20px 50px;
                border-radius: 10px;
+               text-align: center;
                .number{
                    font-size: 40px;
                    font-weight: 900;

@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/variables';
 .username-form{
+    padding: 0 30px;
    span{
        color: #fff;
        font-size: 70px;
@@ -43,6 +44,13 @@ export default {
    .display-6{
        font-weight: 200;
        font-size: 50px;
+       text-align: center;
+       @media only screen and (max-width: 991px) {
+           font-size: 30px;
+       }
+       @media only screen and (max-width: 545px) {
+           font-size: 20px;
+       }
    }
    .form-control{
        background: lighten($primary_color, 12%);
@@ -51,6 +59,9 @@ export default {
        font-size: 35px;
        color: #fff;
        text-align: center;
+       @media only screen and (max-width: 545px) {
+           font-size: 20px;
+       }
        &.hasValue{
             padding-right: 78px;
        }
@@ -62,19 +73,16 @@ export default {
    ::-webkit-input-placeholder { /* Edge */
         color: #fff;
         opacity: .3;
-        font-size: 30px;
     }
 
     :-ms-input-placeholder { /* Internet Explorer 10-11 */
         color: #fff;
         opacity: .3;
-        font-size: 30px;
     }
 
     ::placeholder {
         color: #fff;
         opacity: .3;
-        font-size: 30px;
     }
     .form-group{
         overflow: hidden;
