@@ -1,15 +1,13 @@
 <template>
     <div class="chart">
         <div class="chart_item">
-             <highcharts :options="chartOptions" v-if="chartOptions.series[0].data.length" ref="highcharts"></highcharts>
+            <highcharts :options="chartOptions" v-if="chartOptions.series[0].data.length" ref="highcharts"></highcharts>
+            <span v-if="chartOptions.series[0].data.length === 0 ">Nothing to Display</span>
         </div>
         <div class="chart_item">
-             <highcharts :options="startChartOptions" v-if="startChartOptions.series[0].data.length" ref="highcharts"></highcharts>
+            <highcharts :options="startChartOptions" v-if="startChartOptions.series[0].data.length" ref="highcharts"></highcharts>
+            <span v-if="startChartOptions.series[0].data.length === 0 ">Nothing to Display</span>
         </div>
-        <div class="chart_item">
-             <!-- <highcharts :options="chartOptions"></highcharts> -->
-        </div>
-        
     </div>
 </template>
 <script>
@@ -29,13 +27,19 @@ export default {
             chart: {
                 type: "pie"
                 },
+                title: {
+                    text: 'Top Langulages'
+                },
                 series: [{
                     data: [] 
                 }]
             },
              startChartOptions: {
                 chart: {
-                    type: "column"
+                    type: "column",
+                },
+                 title: {
+                    text: 'Most Starred'
                 },
                  xAxis: {
                     categories: []
@@ -55,6 +59,14 @@ export default {
                             color: '#355555'
                         },
                     ] 
+                }]
+            },
+            starLangularOptions: {
+            chart: {
+                type: "pie"
+                },
+                series: [{
+                    data: [] 
                 }]
             },
         }
@@ -116,17 +128,18 @@ export default {
 @import '../assets/variables';
 .chart{
     display: flex;
-    gap: 20px;
-    margin-top: -40px;
+    gap: 50px;
+    padding: 60px 0;
     align-items: center;
     justify-content: center;
     .chart_item{
-        max-width: 30%;
-        flex: 0 0 30%;
+        padding-top: 20px;
+        max-width: 40%;
+        flex: 0 0 40%;
         background: $white_color;
         border-radius: 5px;
         overflow: hidden;
-        box-shadow: 2px 2px 2px red;
+        box-shadow: 0px 0px 7px #c7c1c1;
     }
 }
 </style>

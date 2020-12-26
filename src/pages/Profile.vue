@@ -4,7 +4,8 @@
             <GithubIcon></GithubIcon>
             <Header v-bind:userInfo="userInfo"></Header>
             <Charts></Charts>
-            <h1>Github profile found with username {{username}}</h1>
+            <Repos></Repos>
+            <Footer></Footer>
         </div>
         <div v-if="hasError">
             <h1>No Github profile found with username {{username}}</h1>
@@ -15,10 +16,12 @@
 import GithubIcon from "../components/GithubIcon";
 import Header from "../components/Header";
 import Charts from '../components/Charts.vue';
+import Repos from '../components/Repos.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
     name:'Profile',
-    components: {GithubIcon, Header, Charts},
+    components: {GithubIcon, Header, Charts, Repos, Footer},
     data() {
         return {
             username: this.$route.params.username,
