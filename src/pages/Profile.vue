@@ -8,7 +8,7 @@
             <Footer></Footer>
         </div>
         <div v-if="hasError">
-            <h1>No Github profile found with username {{username}}</h1>
+            <ErrorScreen></ErrorScreen>
         </div>
     </div>
 </template>
@@ -18,10 +18,11 @@ import Header from "../components/Header";
 import Charts from '../components/Charts.vue';
 import Repos from '../components/Repos.vue';
 import Footer from '../components/Footer.vue';
+import ErrorScreen from '../components/ErrorScreen.vue';
 
 export default {
     name:'Profile',
-    components: {GithubIcon, Header, Charts, Repos, Footer},
+    components: {GithubIcon, Header, Charts, Repos, Footer, ErrorScreen},
     data() {
         return {
             username: this.$route.params.username,
